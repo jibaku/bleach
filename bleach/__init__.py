@@ -133,7 +133,7 @@ def clean(text, tags=ALLOWED_TAGS, attributes=ALLOWED_ATTRIBUTES,
         strip_disallowed_elements = strip
         strip_html_comments = strip_comments
 
-    parser = html5lib.HTMLParser(tokenizer=s)
+    parser = html5lib.HTMLParser(tokenizer=s, tree=html5lib.getTreeBuilder("lxml"))
 
     return _render(parser.parseFragment(text))
 
